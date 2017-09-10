@@ -2,36 +2,41 @@
     Course: CSC326
     Filename : lab01.cpp
     Purpose:
+    1.  SA Template class The memory for array elements is always allocated from dynamic memory area, i.e.
+        freestore. And the size of array is determined during the run time.
+    2. The index of elements in this array does not have to start with zero.
+    3. Using wrong index (out of bounds) when accessing array elements will not cause any serious consequences, instead
+       just pop up proper error messages if the index goes out of bounds.
     @author Suresh Melvin Sigera
     @date 09/10/2017
 */
 
 #include<iostream>
 
-using namespace std;
+using namespace std;    //standard input / output streams
 
-const int dSize = 10; // default size
+const int dSize = 10;   // default size
 
 template<class T>
 class SA {
 private:
-    T *pT; // pointer of T type
-    int lIdx; // low index
-    int hIdx; // high index
+    T *pT;      // pointer of T type
+    int lIdx;   // low index
+    int hIdx;   // high index
 public:
     //Default Constructor
     SA() {
-        pT = new T[dSize];    //Initializing memory
-        lIdx = 0;    //Lowest index
-        hIdx = 9;    //Highest Index
+        pT = new T[dSize];      //Initializing memory
+        lIdx = 0;               //Lowest index
+        hIdx = 9;               //Highest Index
 
     }
 
     //parameterized SA(int n)constructor
     SA(int n) {
-        pT = new T[n];    //Initializing memory
-        lIdx = 0;    //Lowest index
-        hIdx = 9;    //Highest Index
+        pT = new T[n];      //Initializing memory
+        lIdx = 0;           //Lowest index
+        hIdx = 9;           //Highest Index
 
     }
 
@@ -46,10 +51,12 @@ public:
 
     //copy Constructor
     SA(const SA &sa) {
-        pT = new T[sa.getSize()];    //initializing memory
+        //initializing memory
+        pT = new T[sa.getSize()];
 
         for (int i = 0; i < sa.getSize(); i++) {
-            pT[i] = sa[i];    //copying the elements from other object
+            //copying the elements from other object
+            pT[i] = sa[i];
         }
     }
 
@@ -83,9 +90,9 @@ SA<T> &SA<T>::operator=(const SA &sa) {
 
     if (this == &sa)
         return *this;
-    pT = new T[sa.getSize()];    //intialize array according to size of other object
+    pT = new T[sa.getSize()];   //intialize array according to size of other object
     for (int i = 0; i < sa.getSize(); i++) {
-        pT[i] = sa[i];    //copying elements
+        pT[i] = sa[i];          //copying elements
     }
 
     return *this;
@@ -104,7 +111,7 @@ T &SA<T>::operator[](const int index) {
     if (index >= lIdx && index <= hIdx)
         return pT[index];
     else
-        cout << "\n Error: Index out of range..!!";
+        cout << "\nError: Index out of range..!!";
 }
 
 //for array index access
@@ -113,7 +120,7 @@ const T &SA<T>::operator[](const int index) const {
     if (index >= lIdx && index <= hIdx)
         return pT[index];
     else
-        cout << "\n Error: Index out of range..!!";
+        cout << "\nError: Index out of range..!!";
 
 }
 
