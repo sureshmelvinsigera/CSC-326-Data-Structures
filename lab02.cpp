@@ -17,7 +17,7 @@ using namespace std;
 template<class ItemType>
 class ArrayBag {
 private:
-    static const int DEFAULT_CAPACITY = 200; // bag only holds 6 items
+    static const int DEFAULT_CAPACITY = 200; // bag only holds 200 items
     ItemType items[DEFAULT_CAPACITY];
     int itemCount;
     int maxItems;
