@@ -55,6 +55,10 @@ public:
     void printStack() const;
 };
 
+/**
+ *
+ * @tparam T
+ */
 template<class T>
 arrayStack<T>::arrayStack() {
     this->top = -1;
@@ -114,7 +118,10 @@ bool arrayStack<T>::peek() const {
 
 }
 
-
+/**
+ *
+ * @tparam T
+ */
 template<class T>
 void arrayStack<T>::printStack() const {
     cout << endl;
