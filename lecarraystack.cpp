@@ -148,5 +148,5 @@ int main() {
     }
 
     cout << endl << "Let see what in the stack";
-    arrayStackObj.printStack();
+    arrayStackObj.printStack(); //print stack
 }
